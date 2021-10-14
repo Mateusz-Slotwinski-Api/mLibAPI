@@ -2,6 +2,7 @@ const Book = require('../database/models/book')
 
 module.exports = {
     async register(req, res) {
+        const family = req.body.family
         const category = req.body.category
         const subcategory = req.body.subcategory
         const name = req.body.name
@@ -10,7 +11,7 @@ module.exports = {
 
         let book
         try {
-            book = new Book({ category, subcategory, name, author, ID})
+            book = new Book({ family, category, subcategory, name, author, ID})
             await book.save()
         } catch (err) {
             return res.status(422).json({ message:err.message })
