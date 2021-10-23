@@ -6,6 +6,7 @@ const Book = mongoose.model('Book', {
     subcategory: String,
     name: String,
     author: String,
+    source: String,
     ID: String
 })
 

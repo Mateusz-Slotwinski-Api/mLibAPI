@@ -7,11 +7,12 @@ module.exports = {
         const subcategory = req.body.subcategory
         const name = req.body.name
         const author = req.body.author
+        const source = req.body.source
         const ID = req.body.ID
 
         let book
         try {
-            book = new Book({ family, category, subcategory, name, author, ID})
+            book = new Book({ family, category, subcategory, name, author, source, ID})
             await book.save()
         } catch (err) {
             return res.status(422).json({ message:err.message })
